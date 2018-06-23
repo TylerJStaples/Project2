@@ -1,7 +1,7 @@
 {
-  "name": "project2",
+  "name": "project-number-two",
   "version": "1.0.0",
-  "description": "",
+  "description": "Like Waze, but for taking a shit",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,5 +24,9 @@
     "express": "^4.16.3",
     "mocha": "^5.2.0",
     "mysql": "^2.15.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {}
 }
