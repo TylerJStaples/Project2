@@ -1,0 +1,28 @@
+{
+  "name": "project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylerJStaples/Project2.git"
+  },
+  "author": "Tyler Staples, Candace Buchanan, Todd Wilson, Kevin Godwin, Nataliia Frank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TylerJStaples/Project2/issues"
+  },
+  "homepage": "https://github.com/TylerJStaples/Project2#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mocha": "^5.2.0",
+    "mysql": "^2.15.0"
+  }
+}
