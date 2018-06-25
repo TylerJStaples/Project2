@@ -1,0 +1,97 @@
+<DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- linking Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+
+    <!-- linking local css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>In A Pinch || Bathroom Finder</title>
+
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-light bg-light">
+        <a href="#" class="navbar-brand">In a
+            <span>P</span>inch</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <!-- login section -->
+    <div class="col-lg-2">
+        <div class="">
+            <h4>Sign In With</h4>
+
+            <a href="#">Facebook</a>
+            <a href="#">Google</a>
+
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password_field" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" onclick='login()'>Login</button>
+            </form>
+
+            <p>Not a member?
+                <a href="#">Sign Up now</a>
+            </p>
+        </div>
+
+        <div class="">
+            <h4>Welcome User</h4>
+            <p id="user_para">Welcome to In a Pinch. You are currently logged in.</p>
+            <button class="btn btn-primary btn-block" onclick="logout()">Logout</button>
+        </div>
+
+        <div class="">
+            <h4>Sign Up</h4>
+
+            <form>
+                <div class="form-group">
+                    <input type="username" class="form-control" id="username_field" aria-describedby="emailHelp" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password_field" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" onclick='login()'>Sign Up</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Add location button -->
+    <div>
+        <a href="#">Add Location</a>
+    </div>
+
+
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
