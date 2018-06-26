@@ -3,13 +3,16 @@
 // failed.", it means you probably did not give permission for the browser to
 // locate you.
 var restRooms = [
-  ['test1',35.328839, -80.93479, 1],
-  ['test2',35.22883532, -80.8347621, 1]
-]
+  ['test1',35.328839, -80.93479, 1, '2342'],
+  ['test2',35.22883532, -80.8347621, 1, '2343']
+];
+
 var map, infoWindow;
 function initMap() {
+  let myLatLng = {lat: 35.22888353357024, lng: -80.83476207120572};
+
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.22888353357024, lng: -80.83476207120572},
+    center: myLatLng,
     zoom: 11
   });
   infoWindow = new google.maps.InfoWindow;
@@ -17,15 +20,15 @@ function initMap() {
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
+      myLatLng = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
 
-      infoWindow.setPosition(pos);
+      infoWindow.setPosition(myLatLng);
       infoWindow.setContent('Location found.');
       infoWindow.open(map);
-      map.setCenter(pos);
+      map.setCenter(myLatLng);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -35,6 +38,7 @@ function initMap() {
   }
 
   setMarkers( map );
+
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -71,9 +75,22 @@ function setMarkers(map) {
       icon: image,
       shape: shape,
       title: restRoom[0],
-      zIndex: restRoom[3]
+      zIndex: restRoom[3],
     });
+
+    addMarkerUniqID(marker, restRoom[4]);
+
   }
+}
+
+function addMarkerUniqID( marker, ID ) {
+  var newInfoWindow = new google.maps.InfoWindow({ markerID: ID });
+
+  marker.addListener('click', function() {
+    // newInfoWindow.open( marker.get('map'), marker);
+    console.log( newInfoWindow.markerID );
+  });
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
