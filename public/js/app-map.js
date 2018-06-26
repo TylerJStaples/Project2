@@ -53,18 +53,10 @@ function initMap() {
 function setMarkers(map) {
 
   var image = {
-    url: './images/marker.png', 
-    size: new google.maps.Size(25, 32),       // This marker is 25 pixels wide by 32 pixels high.
-    origin: new google.maps.Point(0, 0),      // The origin for this image is (0, 0).
-    anchor: new google.maps.Point(0, 32)      // The anchor for this image is the base of the flagpole at (0, 32).
-  };
-
-  // Shapes define the clickable region of the icon. The type defines an HTML
-  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-  // The final coordinate closes the poly by connecting to the first coordinate.
-  var shape = {
-    coords: [1, 1, 1, 20, 18, 20, 18, 1],
-    type: 'poly'
+    url: './images/the-pin.svg', 
+    scaledSize: new google.maps.Size(64, 64),
+    origin: new google.maps.Point(0, 0),
+    anchor: new google.maps.Point(0, 64)
   };
 
   for (var i = 0; i < restRooms.length; i++) {
@@ -73,7 +65,6 @@ function setMarkers(map) {
       position: {lat: restRoom[1], lng: restRoom[2]},
       map: map,
       icon: image,
-      shape: shape,
       title: restRoom[0],
       zIndex: restRoom[3],
     });
