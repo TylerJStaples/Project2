@@ -13,4 +13,5 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
         },
     });
+    return Potty;
 }
