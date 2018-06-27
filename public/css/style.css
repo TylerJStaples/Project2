@@ -1,3 +1,58 @@
+@font-face {
+    font-family: DroidSans;
+    src: url(../fonts/DroidSans.ttf);
+}
+
 .hide {
     display: none;
+}
+
+body {
+    background-color: #ededed;
+    text-align: center;
+    font-family: DroidSans;
+    color: #888;
+}
+
+.nav {
+    background-color: #adb7f5;
+    border-bottom: 3pt solid #9da5d9;
+}
+
+#logo {
+    height: 60px;
+}
+
+.brand {
+    width: 100px;
+    margin-left: 20px;
+}
+
+.log-section {
+    background-color: #fff;
+    padding: 40px;
+    margin: 30px 40px;
+    border-radius: 20px;
+}
+
+.form-header {
+    color: #737fca;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.button {
+    background-color: #737fca;
+    border: none;
+    margin-bottom: 60px;
+    opacity: 1;
+}
+
+.not-member {
+    margin-bottom: 60px;    
+}
+
+#sign-up:link,
+#sign-up:visited {
+    color: #737fca;
 }
