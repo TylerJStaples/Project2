@@ -64,7 +64,7 @@
         anchor: new google.maps.Point(0, 32)
       };
 
-      console.log( `setMarkers() - # of Rest Rooms = ${restRooms.length}`);
+      console.log( `DEBUG - setMarkers() - # of Rest Rooms = ${restRooms.length}`);
 
       for (var i = 0; i < restRooms.length; i++) {
         var marker = new google.maps.Marker({
@@ -85,9 +85,11 @@
 
       marker.addListener('click', function() {
         // newInfoWindow.open( marker.get('map'), marker);
-        console.log( newInfoWindow.markerID );
+        console.log( `DEBUG - addMarkerUniqID() - ${newInfoWindow.markerID}` );
+        $.get(`/api/getRestRoom/${newInfoWindow.markerID}`, function(data) {
+          console.log(`DEBUG - addMarkerUniqID() .... ${JSON.stringify(data)}`);
+        });
       });
-
     }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -100,7 +102,7 @@
 
     function getAllRestRooms() {
       $.get("/api/allRestRooms", function(restRooms) {
-        console.log( `getAllRestRooms() - # of Rest Rooms = ${restRooms.length}`);
+        console.log( `DEBUG - getAllRestRooms() - # of Rest Rooms = ${restRooms.length}`);
         setMarkers( map, restRooms );
       });
     };
