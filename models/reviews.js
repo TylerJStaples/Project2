@@ -17,10 +17,10 @@ module.exports = function(sequelize, DataTypes){
     Reviews.associate = function(models){
         Reviews.belongsTo(models.Potty, {
             foreingKey: {
-                allowNull: false,
+                allowNull: false
             }
         });
-    }
+    };
 
     return Reviews;
-}
+};

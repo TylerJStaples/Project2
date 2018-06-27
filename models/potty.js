@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes){
         Potty.hasMany(models.reviews, {
             onDelete: "cascade"
         });
-    }
+    };
 
     return Potty;
-}
+};
