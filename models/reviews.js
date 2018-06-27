@@ -13,5 +13,15 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
         },
     });
+
+    Reviews.associate = function(models){
+        Reviews.belongsTo(models.Potty, {
+            foreingKey: {
+                allowNull: false,
+            },
+            onDelete: "cascade",
+        });
+    }
+
     return Reviews;
 }
