@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes){
     });
 
     Potty.associate = function(models){
-        Potty.hasMany(models.reviews, {
+        Potty.hasMany(models.Reviews, {
             onDelete: "cascade"
         });
     };
