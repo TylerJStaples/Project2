@@ -2,23 +2,23 @@ module.exports = function(sequelize, DataTypes){
     var Potty = sequelize.define("Potty", {
         lat: {
             type: DataTypes.DOUBLE,
-            allowNull: false,
+            allowNull: false
         },
         lng: {
             type: DataTypes.DOUBLE,
-            allowNull: false,
+            allowNull: false
         },
         zINdex: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-        },
+            allowNull: false
+        }
     });
 
     Potty.associate = function(models){
         Potty.hasMany(models.reviews, {
-            onDelete: "cascade",
+            onDelete: "cascade"
         });
-    }
+    };
 
     return Potty;
-}
+};

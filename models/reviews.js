@@ -2,26 +2,25 @@ module.exports = function(sequelize, DataTypes){
     var Reviews = sequelize.define("Reviews", {
         remarks: {
             type: DataTypes.TEXT,
-            allowNull: true,
+            allowNull: true
         },
         starRating: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+            allowNull: true
         },
         submittedBy: {
             type: DataTypes.STRING,
-            allowNull: false,
-        },
+            allowNull: false
+        }
     });
 
     Reviews.associate = function(models){
         Reviews.belongsTo(models.Potty, {
             foreingKey: {
-                allowNull: false,
-            },
-            onDelete: "cascade",
+                allowNull: false
+            }
         });
-    }
+    };
 
     return Reviews;
-}
+};
