@@ -9,9 +9,16 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false,
         },
         zINdex: {
-            type: DataTypes.DOUBLE,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
     });
+
+    Potty.associate = function(models){
+        Potty.hasMany(models.reviews, {
+            onDelete: "cascade",
+        });
+    }
+
     return Potty;
 }
