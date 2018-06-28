@@ -7,7 +7,6 @@
 // var messagingSenderId = config.messagingSenderId;
 
 /* Candace's
-*/
 var config = {
     apiKey: "AIzaSyA2_tnNsCgwOh6gNQIhuBPu5dzrtdctTEU",
     authDomain: "in-a-pinch-project-2.firebaseapp.com",
@@ -16,7 +15,9 @@ var config = {
     storageBucket: "in-a-pinch-project-2.appspot.com",
     messagingSenderId: "674290992138"
 };
+*/
 /* Todd's
+*/
 var config = {
     apiKey: "AIzaSyDUWLn9TlTiPbRUKh0lypHoKXeSQSG_FUs",
     authDomain: "inapinch-1529857093090.firebaseapp.com",
@@ -25,7 +26,6 @@ var config = {
     storageBucket: "inapinch-1529857093090.appspot.com",
     messagingSenderId: "600057660668"
 };
-*/
 
 firebase.initializeApp(config);
 // Get a reference to the database service
@@ -70,15 +70,8 @@ $(document).ready(function () {
         const promise = auth.signInWithEmailAndPassword(email, pass);
         promise
             .then( user => {
-                const promise2 = userRef.child(user.user.id).once('value');
-                promise2
-                    .then(snap => {
-                        username = snap.val().userName;
-                        console.log(`user ${username} logged in`);
-                    })
-                    .catch(err => {
-                        console.log(`user name does not exist for ${emai}`);
-                    });
+                /*
+                    */
             })
             .catch(function (error) {
                 // Handle error
@@ -88,9 +81,8 @@ $(document).ready(function () {
                 $("#exampleModal").modal();
                 // alert("You look a little flushed! The email you entered is not correct. Try again!");
                 console.log(errorMessage);
+                alert(errorMessage);
             });
-        // alert(errorMessage);
-        console.log(errorMessage);
     });
 
 ///////////////////////////////////////////////////////
@@ -120,7 +112,6 @@ $(document).ready(function () {
         localStorage.setItem('user', JSON.stringify(username));
         // TAW  const auth = firebase.auth();
 
-        console.log(username, email);
         // Sign in
         const promise = auth.createUserWithEmailAndPassword(email, pass);
         promise
@@ -177,9 +168,24 @@ $(document).ready(function () {
             
 
             // TAW - the user is already known
-            /// var user = firebase.auth().currentUser;
-        
-        } else {
+
+            //var user = firebase.auth().currentUser;
+
+            var email_id = user.email;
+            document.getElementById("user_para").innerHTML = "Welcome User: " + email_id;
+            const promise = usersRef.child(user.uid).once('value');
+            promise
+                .then(snap => {
+                    username = snap.val().userName;
+                    console.log(`user ${username} logged in`);
+                    window.location.href = "/map";
+                })
+                .catch(err => {
+                    console.log(`user name does not exist for ${emai}`);
+                });
+        } 
+        else {
+
             // No user is signed in.
             console.log("not logged in");
             document.getElementById("user_div").style.display = "none";
