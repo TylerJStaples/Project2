@@ -32,11 +32,18 @@ firebase.initializeApp(config);
 // var database = firebase.database(); //added
 const auth = firebase.auth();
 const usersRef = firebase.database().ref("/users");
+///////////////////////////////////////////////////////
+// How Firebase Database is Set Up
+///////////////////////////////////////////////////////
+// /users
+//     /userId1
+//        userEmail: "123email@gmail.com"
+//        userName: "Shally"
 
 $(document).ready(function () {
-    ///////////////////////////////////////////////////////
-    // Get elements
-    ///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+// Get elements
+///////////////////////////////////////////////////////
     const userEmail = document.getElementById('userEmail'); //registered user
     const userPassword = document.getElementById('userPassword'); //registered user
     //--------------------------------------------------------
@@ -48,9 +55,9 @@ $(document).ready(function () {
     const btnRegister = document.getElementById('btnRegister');
     const btnLogout = document.getElementById('btnLogout');
 
-    /////////////////////////////////////////////////////// 
-    //Add login event
-    ///////////////////////////////////////////////////////
+/////////////////////////////////////////////////////// 
+//Add login event
+///////////////////////////////////////////////////////
 
     btnLogin.addEventListener('click', e => {
         // Get email and pass
@@ -78,9 +85,9 @@ $(document).ready(function () {
             });
     });
 
-    ///////////////////////////////////////////////////////
-    // Add login to signup event
-    ///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+// Add login to signup event
+///////////////////////////////////////////////////////
     // sign-up.addEventListener('click', e => {
     //     $('.log-section').addClass('hide');
     //     $('#signupDiv').fadeIn('slow').removeClass('hide');
@@ -93,14 +100,16 @@ $(document).ready(function () {
     });
 
 
-    ///////////////////////////////////////////////////////
-    // Add signup event
-    ///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+// Add signup event
+///////////////////////////////////////////////////////
     $('#createUser').click( function() {
         // Get username, email, and pass
         const username = txtUsername.value.trim(); //added, not working yet
         const email = txtEmail.value;
         const pass = txtPassword.value;
+        // store this locally
+        localStorage.setItem('user', JSON.stringify(username));
         // TAW  const auth = firebase.auth();
 
         // Sign in
@@ -134,18 +143,32 @@ $(document).ready(function () {
     });
 
 
-    ///////////////////////////////////////////////////////
-    // Add a realtime listener
-    ///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+// Add a realtime listener
+///////////////////////////////////////////////////////
 
     auth.onAuthStateChanged(function (user) {
         console.log(user);
+        //saves user to local storage
+        var username = JSON.parse(localStorage.getItem('user'));
+
         if (user) {
+
+            //still trying to connect firebase database
+            // firebaseDataBase.ref('users/' + user.uid).set({
+            //     username: username
+            // });
+            // var retrievedUserName = firebase.database().ref('/users/' + user.uid).once('value').then(function(snapshot) {
+            // var username = snapshot.val().username;
+
             // User is signed in.
             document.getElementById("user_div").style.display = "block";
             document.getElementById("main_div").style.display = "none";
+            // document.getElementById("user_para").innerHTML = "Welcome User: " + username;
+            
 
             // TAW - the user is already known
+
             //var user = firebase.auth().currentUser;
 
             var email_id = user.email;
@@ -162,6 +185,7 @@ $(document).ready(function () {
                 });
         } 
         else {
+
             // No user is signed in.
             console.log("not logged in");
             document.getElementById("user_div").style.display = "none";
