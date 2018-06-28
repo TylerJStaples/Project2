@@ -1,3 +1,4 @@
+//
 module.exports = function(sequelize, DataTypes){
     var Potty = sequelize.define("Potty", {
         name: {
