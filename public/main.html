@@ -1,96 +1,141 @@
-<DOCTYPE html>
-        <html lang="en">
-        
-        <head>
-            <!-- Required meta tags -->
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
-            <link rel="shortcut icon" href="./images/toilet-paper.png" type="image/png">
-            <!-- linking Bootstrap -->
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
-                crossorigin="anonymous">
-        
-            <!-- linking local css -->
-            <link rel="stylesheet" href="./css/style.css">
+<!DOCTYPE html>
+<html lang="en">
 
-            <title>In A Pinch || Bathroom Finder</title>
-        
-        </head>
-        
-        <body>
-            <!-- navbar -->
-            <nav class="navbar nav">
-                <a href="#" class="brand">
-                    <img src="./images/Logo.svg" alt="logo" id="logo">
-                </a>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </nav>
-        
-            <!-- login section -->
-            <div class="col-lg-3 log-section">
-                <div class="">
-                    <h4 class="form-header">Sign In</h4>
-        
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="./images/toilet-paper.png" type="image/png">
+    <!-- linking Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+
+    <!-- linking local css -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>In A Pinch || Bathroom Finder</title>
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar nav">
+        <a href="#" class="brand">
+            <img src="./images/Logo.svg" alt="logo" id="logo">
+        </a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+
+    <!-- MAIN SIGN IN DIV -->
+    <div class="col-lg-3" id="log-section">
+        <div id="main_div" class="main-div">
+            <h4 class="form-header">Sign In</h4>
+
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="userPassword" placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block button" id="btnLogin">Sign In</button>
+            </form>
+
+            <p class="not-member">Not a member?
+                <a href="#" data-toggle="modal" data-target="#signupDiv" id="sign-up">Sign Up now</a>
+            </p>
+        </div>
+    </div>
+    <!-- END OF MAIN SIGN IN DIV -->
+
+    <!-- WELCOME DIV -->
+    <div id="user_div" class="loggedin-div hide">
+        <h4 class="form-header">Welcome to In a Pinch!</h4>
+        <p id="user_para">You are currently logged in.</p>
+        <button class="btn btn-primary btn-block button">Sign Out</button>
+        <!-- May need to add this back to sign out btn: onclick="logout()" -->
+    </div>
+    <!-- END OF WELCOME DIV -->
+
+    <!-- SIGN UP MODAL -->
+    <div class="modal fade" id="signupDiv">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h2 class="modal-title">Sign Up: </h2>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Email">
+                            <input type="username" class="form-control" id="txtUsername" placeholder="Username">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password_field" placeholder="Password">
-                        </div>
-        
-                        <button type="submit" class="btn btn-primary btn-block button" onclick='login()'>Sign In</button>
-                    </form>
-        
-                    <p class="not-member">Not a member?
-                        <a href="#" id="sign-up">Sign Up now</a>
-                    </p>
-                </div>
-        
-                <div class="hide">
-                    <h4 class="form-header">Welcome User</h4>
-                    <p id="user_para">Welcome to 'In a Pinch'. You are currently logged in.</p>
-                    <button class="btn btn-primary btn-block button" onclick="logout()">Sign Out</button>
-                </div>
-        
-                <div class="hide">
-                    <h4 class="form-header">Sign Up</h4>
-        
-                    <form>
-                        <div class="form-group">
-                            <input type="username" class="form-control" id="username_field" aria-describedby="emailHelp" placeholder="Username">
+                            <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Email">
+                            <input type="password" class="form-control" id="txtPassword" placeholder="Password">
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="password_field" placeholder="Password">
-                        </div>
-        
-                        <button type="submit" class="btn btn-primary btn-block button" onclick='login()'>Sign Up</button>
                     </form>
                 </div>
-        
+
+                <div class="modal-footer">
+                    <button type="button" id="modalBtn" class="btn btn-primary btn-block button" onclick="register()">Sign Up</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back to Login</button>
+                </div>
             </div>
-        
-            <!-- Add location button -->
-            <div>
-                <a href="#">Add Location</a>
+        </div>
+    </div>
+
+    <!-- END OF SIGN UP MODAL -->
+
+    
+    <!-- WRONG EMAIL/PASS MODAL -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Oh no!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    You look a little flushed! The email or password you entered is not correct. Try again!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                    
+                </div>
             </div>
-        
-        
-            <!-- JavaScript -->
-            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-                crossorigin="anonymous"></script>
-        </body>
-        
-        </html>
+        </div>
+    </div> -->
+    <!-- END WRONG EMAIL/PASS MODAL -->
+
+    <!-- Add location button -->
+    <div>
+        <a href="#">Add Location</a>
+    </div>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <!-- JavaScript -->
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
+
