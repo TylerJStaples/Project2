@@ -1,23 +1,24 @@
 {
-  "development": {
-    "username": "e1awo21p01tzyv5n",
-    "password": "kr9k3wk7ja0x1tgq",
-    "database": "gdc0hfyf2aatxw0z",
-    "host": "o677vxfi8ok6exrd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "e1awo21p01tzyv5n",
-    "password": "kr9k3wk7ja0x1tgq",
-    "database": "gdc0hfyf2aatxw0z",
-    "host": "o677vxfi8ok6exrd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "e1awo21p01tzyv5n",
-    "password": "kr9k3wk7ja0x1tgq",
-    "database": "gdc0hfyf2aatxw0z",
-    "host": "o677vxfi8ok6exrd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
+    "development": {
+      "username": "root",
+      "password": "root",
+      "database": "dookiedb",
+      "host": "localhost",
+      "port": 8889 ,
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": "root",
+      "database": "localhost",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "root",
+      "password": "root",
+      "database": "pottydb_production",
+      "host": "localhost",
+      "dialect": "mysql"
+    }
   }
-}
