@@ -28,12 +28,13 @@ body {
     margin-left: 20px;
 }
 
-.log-section {
+/* .log-section {
     background-color: #fff;
     padding: 40px;
     margin: 30px 40px;
     border-radius: 20px;
-}
+} */
+
 
 .form-header {
     color: #737fca;
@@ -48,6 +49,10 @@ body {
     opacity: 1;
 }
 
+#modalBtn {
+    margin-bottom: 0px;
+}
+
 .not-member {
     margin-bottom: 60px;    
 }
@@ -55,4 +60,66 @@ body {
 #sign-up:link,
 #sign-up:visited {
     color: #737fca;
+}
+
+/* CANDACE ADDED */
+
+div #log-section .col-lg-3 {
+    border: transparent;
+}
+
+.main-div,
+.signup-div,
+.loggedin-div {
+    width: 35%;
+    margin: 0px auto;
+    margin-top: 150px;
+    padding: 20px;
+    display: none;
+    border-radius: 20px;
+    border: transparent;
+}
+
+.main-div,
+.signup-div,
+input {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    padding: 15px;
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.main-div,
+.signup-div,
+input:focus {
+    border: 1px solid #777;
+}
+
+.main-div button,
+.loggedin-div button,
+.signup-div button {
+    background: #a7b2fc;
+    color: #fff;
+    border: 1px solid #6d7bd4;
+    border-radius: 5px;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    transition: 0.3s;
+    margin-bottom: 5px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+}
+
+.main-div button:hover,
+.loggedin-div button:hover,
+.signup-div button:hover {
+    background: #fff;
+    color: #a7b2fc;
+    border: 1px solid #6d7bd4;
+    cursor: pointer;
 }
