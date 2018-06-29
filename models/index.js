@@ -5,16 +5,12 @@ var path = require("path");
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
 var env = process.env.NODE_ENV || "development";
-var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
-
-console.log (`DEGUG - index.js`);
-console.log ( config.use_env_variable );
-console.log ( process.env.JAWSDB_URL);
 
 if (process.env.JAWSDB_URL) {
   var sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {   // This is what is used locally
+  var config = require(__dirname + "/../config/config.json")[env];
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
