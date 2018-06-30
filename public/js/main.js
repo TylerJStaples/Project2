@@ -113,7 +113,7 @@ btnLogout.addEventListener('click', e => {
             document.getElementById("user_div").style.display = "block";
             document.getElementById("main_div").style.display = "none";
             document.getElementById("user_para").innerHTML = "Welcome User: " + user.displayName;
-            window.location.assign('/map');
+            setTimeout(function(){window.location.assign('/map')},(2500));
         } 
         else {
 
