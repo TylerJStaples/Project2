@@ -10,6 +10,7 @@
 
 //$(document).ready(function() {
 
+    getUserLoggedIn();
     getAllRestRooms();
 
     var map, infoWindow;
@@ -104,6 +105,12 @@
       $.get("/api/allRestRooms", function(restRooms) {
         console.log( `DEBUG - getAllRestRooms() - # of Rest Rooms = ${restRooms.length}`);
         setMarkers( map, restRooms );
+      });
+    };
+
+    function getUserLoggedIn () {
+      $.get("/api/getAuthUser", function(userName) {
+        console.log( `DEBUG - getUserLoggedIn() - ${userName}`);
       });
     };
 
