@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Initialize Firebase (config & env didn't work, will switch keys once app is working)
 // var apiKey = config.apiKey;
 // var authDomain = config.authDomain;
@@ -8,9 +7,6 @@
 // var messagingSenderId = config.messagingSenderId;
 
 /* Candace's
-=======
-//Candace's
->>>>>>> refs/remotes/origin/master
 var config = {
     apiKey: "AIzaSyA2_tnNsCgwOh6gNQIhuBPu5dzrtdctTEU",
     authDomain: "in-a-pinch-project-2.firebaseapp.com",
@@ -19,7 +15,6 @@ var config = {
     storageBucket: "in-a-pinch-project-2.appspot.com",
     messagingSenderId: "674290992138"
 };
-<<<<<<< HEAD
 */
 /* Todd's
 */
@@ -44,13 +39,6 @@ const usersRef = firebase.database().ref("/users");
 //     /userId1
 //        userEmail: "123email@gmail.com"
 //        userName: "Shally"
-=======
-
-firebase.initializeApp(config);
-// Get a reference to the database service
-const auth = firebase.auth();
-// const usersRef = firebase.database().ref("/users");
->>>>>>> refs/remotes/origin/master
 
 $(document).ready(function () {
 ///////////////////////////////////////////////////////
@@ -71,7 +59,6 @@ $(document).ready(function () {
 //Add login event
 ///////////////////////////////////////////////////////
 
-<<<<<<< HEAD
     btnLogin.addEventListener('click', e => {
         // Get email and pass
         const email = userEmail.value;
@@ -97,46 +84,16 @@ $(document).ready(function () {
                 alert(errorMessage);
             });
     });
-=======
-btnLogin.addEventListener('click', e => {
-    e.preventDefault();
-    // Get email and pass
-    const email = userEmail.value;
-    const pass = userPassword.value;
-
-    console.log(email, pass);
-
-    // Sign in
-    auth.signInWithEmailAndPassword(email, pass)
-        // .then( user => {
-        //     console.log("I made it this far!");
-        //     document.getElementById("user_para").innerHTML = "Welcome User: " + user.displayName;
-        // })
-        // .catch(function (error) {
-        //     // Handle error
-        //     var errorCode = error.code;
-        //     var errorMessage = error.message;
-
-        //     $("#exampleModal").modal();
-        //     // alert("You look a little flushed! The email you entered is not correct. Try again!");
-        //     console.log(errorMessage);
-        //     alert(errorMessage);
-        // });
-});
->>>>>>> refs/remotes/origin/master
 
 ///////////////////////////////////////////////////////
 // Add login to signup event
 ///////////////////////////////////////////////////////
-<<<<<<< HEAD
     // sign-up.addEventListener('click', e => {
     //     $('.log-section').addClass('hide');
     //     $('#signupDiv').fadeIn('slow').removeClass('hide');
     // });
 
 
-=======
->>>>>>> refs/remotes/origin/master
     $('#sign-up').click(function () {
         $('.log-section').hide();
         $('#signupDiv').show("slow");
@@ -148,7 +105,6 @@ btnLogin.addEventListener('click', e => {
 ///////////////////////////////////////////////////////
     $('#createUser').click( function() {
         // Get username, email, and pass
-<<<<<<< HEAD
         const username = txtUsername.value.trim(); //added, not working yet
         const email = txtEmail.value;
         const pass = txtPassword.value;
@@ -186,35 +142,6 @@ btnLogin.addEventListener('click', e => {
         auth.signOut();
     });
 
-=======
-        const displayName = txtUsername.value.trim(); //added, not working yet
-        const email = txtEmail.value;
-        const pass = txtPassword.value;
-
-
-        // Sign up
-        auth.createUserWithEmailAndPassword(email, pass)
-            .then(function(userCredential) {
-                userCredential.user.updateProfile({
-                    displayName: displayName
-                }).then( function() {
-                    console.log(userCredential);
-                    //if redirecting to /map the line below can be taken out
-                document.getElementById("user_para").innerHTML = "Welcome User: " + userCredential.user.displayName;
-                ('#signupDiv').modal('hide');  ///TODO: doesnt hide modal 
-                })
-            })
-            .catch( function(e) {
-              console.log(`error from createUserWithEmailAndPassword() ${e.message}`);
-            });
-
-    });
-
-btnLogout.addEventListener('click', e => {
-    auth.signOut();
-});
-
->>>>>>> refs/remotes/origin/master
 
 ///////////////////////////////////////////////////////
 // Add a realtime listener
@@ -222,7 +149,6 @@ btnLogout.addEventListener('click', e => {
 
     auth.onAuthStateChanged(function (user) {
         console.log(user);
-<<<<<<< HEAD
         //saves user to local storage
         var username = JSON.parse(localStorage.getItem('user'));
 
@@ -257,16 +183,6 @@ btnLogout.addEventListener('click', e => {
                 .catch(err => {
                     console.log(`user name does not exist for ${emai}`);
                 });
-=======
-
-        if (user) {
-
-            // User is signed in.
-            document.getElementById("user_div").style.display = "block";
-            document.getElementById("main_div").style.display = "none";
-            document.getElementById("user_para").innerHTML = "Welcome User: " + user.displayName;
-            window.location.assign('/map');
->>>>>>> refs/remotes/origin/master
         } 
         else {
 
