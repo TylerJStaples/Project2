@@ -24,6 +24,7 @@ firebase.initializeApp(config);
 const auth = firebase.auth();
 // const usersRef = firebase.database().ref("/users");
 
+    getUserLoggedIn();
     getAllRestRooms();
 
     var map, infoWindow;
@@ -126,6 +127,7 @@ const auth = firebase.auth();
           // Sign-out successful.
 
 
+
       }).catch(function (error) {
           // An error happened.
       });
@@ -133,6 +135,11 @@ const auth = firebase.auth();
   });
   function getLocation(latlng){
     $.post("/map/location", latlng)
-    console.log
   }
+    function getUserLoggedIn () {
+      $.get("/api/getAuthUser", function(userName) {
+        console.log( `DEBUG - getUserLoggedIn() - ${userName}`);
+      });
+    };
+
 //});
