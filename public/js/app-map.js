@@ -10,6 +10,10 @@
 
 //$(document).ready(function() {
 
+<<<<<<< HEAD
+=======
+    getUserLoggedIn();
+>>>>>>> refs/remotes/origin/master
     getAllRestRooms();
 
     var map, infoWindow;
@@ -107,4 +111,13 @@
       });
     };
 
+<<<<<<< HEAD
+=======
+    function getUserLoggedIn () {
+      $.get("/api/getAuthUser", function(userName) {
+        console.log( `DEBUG - getUserLoggedIn() - ${userName}`);
+      });
+    };
+
+>>>>>>> refs/remotes/origin/master
 //});
