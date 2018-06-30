@@ -9,6 +9,20 @@
 //];
 
 //$(document).ready(function() {
+  //Candace's
+var config = {
+  apiKey: "AIzaSyA2_tnNsCgwOh6gNQIhuBPu5dzrtdctTEU",
+  authDomain: "in-a-pinch-project-2.firebaseapp.com",
+  databaseURL: "https://in-a-pinch-project-2.firebaseio.com",
+  projectId: "in-a-pinch-project-2",
+  storageBucket: "in-a-pinch-project-2.appspot.com",
+  messagingSenderId: "674290992138"
+};
+
+firebase.initializeApp(config);
+// Get a reference to the database service
+const auth = firebase.auth();
+// const usersRef = firebase.database().ref("/users");
 
     getAllRestRooms();
 
@@ -29,7 +43,7 @@
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
-    
+          getLocation(myLatLng);
           infoWindow.setPosition(myLatLng);
           infoWindow.setContent('Location found.');
           infoWindow.open(map);
@@ -55,7 +69,7 @@
     // Origins, anchor positions and coordinates of the marker increase in the X
     // direction to the right and in the Y direction down.
     //-------------------------------------------------------------------------------------------------
-    function setMarkers(map, restRooms ) {
+    function setMarkers(map, restRooms) {
 
       var image = {
         url: './images/the-pin.svg', 
@@ -106,5 +120,21 @@
         setMarkers( map, restRooms );
       });
     };
-
+    $("#logout").on("click", function () {
+     
+      firebase.auth().signOut().then(function () {
+          // Sign-out successful.
+      }).catch(function (error) {
+          // An error happened.
+      });
+      window.location.assign('/');
+  });
+  function getLocation(latlng){
+    $.post("/map/location", latlng)
+  }
+    function getUserLoggedIn () {
+      $.get("/api/getAuthUser", function(userName) {
+        console.log( `DEBUG - getUserLoggedIn() - ${userName}`);
+      });
+    };
 //});

@@ -164,25 +164,8 @@ $(document).ready(function () {
             // User is signed in.
             document.getElementById("user_div").style.display = "block";
             document.getElementById("main_div").style.display = "none";
-            // document.getElementById("user_para").innerHTML = "Welcome User: " + username;
-            
-
-            // TAW - the user is already known
-
-            //var user = firebase.auth().currentUser;
-
-            var email_id = user.email;
-            document.getElementById("user_para").innerHTML = "Welcome User: " + email_id;
-            const promise = usersRef.child(user.uid).once('value');
-            promise
-                .then(snap => {
-                    username = snap.val().userName;
-                    console.log(`user ${username} logged in`);
-                    window.location.href = "/map";
-                })
-                .catch(err => {
-                    console.log(`user name does not exist for ${emai}`);
-                });
+            document.getElementById("user_para").innerHTML = "Welcome User: " + user.displayName;
+            setTimeout(function(){window.location.assign('/map')},(2500));
         } 
         else {
 
